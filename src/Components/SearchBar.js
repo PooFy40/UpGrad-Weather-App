@@ -36,6 +36,7 @@ const SearchBar = () => {
             setWeather('')
             setLoading(false)
             setErr(true)
+
         })
 
     }
@@ -44,7 +45,7 @@ const SearchBar = () => {
 
     return (
         <>
-            <div className="container my-5 d-flex justify-content-center ">
+            <div className="container my-5 d-flex justify-content-center " style={{marginTop:'50px'}}>
                 <input type="text" style={{ border: "none" }} className="city w-50" name='city' id="city" onChange={onChange} placeholder="Enter City Name..." />
                 <button className='mx-1' onClick={getWeather} style={{ backgroundColor: "#6500F2", color: 'white', border: "none" }}>Search</button>
             </div>
