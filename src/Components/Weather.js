@@ -1,4 +1,5 @@
 import React from 'react'
+import Comments from './Comments';
 
 const Weather = (props) => {
     // console.log(props.weather);
@@ -71,14 +72,7 @@ const Weather = (props) => {
 
 
             </div>
-            <div className="container my-3" style={{ backgroundColor: 'white', height: '400px' }}>
-
-                <textarea className='my-3' rows="3" placeholder='Enter your comment here...' style={{ border: 'none', backgroundColor: '#EFE5FF', fontSize: 'larger', width: '100%' }} ></textarea>
-                <button style={{ backgroundColor: '#6500F2', color: 'white' }}>Comment</button>
-                <div className="container my-3 mb-3" style={{ backgroundColor: '#EFE5FF', height: 'auto' }}>
-                    <span style={{ fontSize: 'larger', fontWeight: 'bolder', marginTop: '10px' }}>Comments(0)</span>
-                </div>
-            </div>
+            <Comments/>
         </>
     )
 }
