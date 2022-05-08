@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
 
 const Comments = () => {
+    // to Keep all comments A unique Key
     let key=0
+
+    // States
     const [comment] = useState([])
     const [usercomment, setUsercomment] = useState([])
 
 
+    // To get input
     const onChange = (e) => {
         setUsercomment(e.target.value)
     }
+
+    // to add comment After clicking Comment Button
 
     const addComment = () => {
         if ((usercomment.length)) {
@@ -16,12 +22,18 @@ const Comments = () => {
             comment.push(usercomment);
         }
     }
+
+    // To add new comments
+
     const listOfComments = comment.map(eachComment => (
         <p key={key=key+1} style={{ textAlign: 'left' }}>
             <i className="fa fa-user" aria-hidden="true"></i> {eachComment}
         </p>
     ))
     return (
+
+        // Comment Box Design 
+
         <div>
             <div>
                 <div>

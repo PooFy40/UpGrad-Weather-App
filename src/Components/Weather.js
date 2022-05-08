@@ -2,49 +2,41 @@ import React from 'react'
 import Comments from './Comments';
 
 const Weather = (props) => {
-    // console.log(props.weather);
-    // console.log(props.weather.main.pressure);
+    
+    //weekdays names
     const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+    //months names
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    let date = new Date()
 
-
-    // Create a new JavaScript Date object based on the timestamp
-    // multiplied by 1000 so that the argument is in milliseconds, not seconds.
+    // for current date
+    var date=new Date()
+    
+    //sunrise time
     var date2 = new Date(props.weather.sys.sunrise * 1000);
-    // Hours part from the timestamp
-    var hours = date2.getHours();
-    // Minutes part from the timestamp
+    var hours = date2.getHours(); 
     var minutes = "0" + date2.getMinutes();
-    // Seconds part from the timestamp
     var seconds = "0" + date2.getSeconds();
-
     // Will display time in 10:30:23 format
     var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
 
-    // console.log(formattedTime);
-
-     // Create a new JavaScript Date object based on the timestamp
-    // multiplied by 1000 so that the argument is in milliseconds, not seconds.
+    //sunset time
     var date3 = new Date(props.weather.sys.sunset * 1000);
-    // Hours part from the timestamp
     var hours = date3.getHours();
-    // Minutes part from the timestamp
     var minutes = "0" + date3.getMinutes();
-    // Seconds part from the timestamp
     var seconds = "0" + date3.getSeconds();
-
-    // Will display time in 10:30:23 format
     var formattedTime1 = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
 
-    // console.log(formattedTime1);
 
+    // weather icon
     var iconurl = "http://openweathermap.org/img/w/" + props.weather.weather[0].icon + ".png";
-    // console.log(iconurl);
 
     return (
         <>
+        {/* Design of Weather Informations */}
+
             <div className='container' style={{ backgroundColor: 'white', height: '400px' }}>
+
                 <p style={{ fontSize: 'larger' }}>{props.weather.name}, {props.weather.sys.country}, {weekday[date.getDay()]} {months[date.getMonth()]} {date.getDate()} {date.getFullYear()}</p>
 
                 <div className='container d-flex flex-column justify-content-center' style={{ height: '300px',marginLeft:'100px' }}>
@@ -72,6 +64,9 @@ const Weather = (props) => {
 
 
             </div>
+
+            {/* Comment Box */}
+
             <Comments/>
         </>
     )
